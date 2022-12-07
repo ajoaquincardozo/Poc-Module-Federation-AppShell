@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 
 import "./index.scss";
 
-import Products from "home/Products";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Products from "mfeProducts/Products";
 
 const App = () => {
   const handleAddProduct = (event) => {
@@ -24,7 +26,11 @@ const App = () => {
 
   return (
     <div className="mt-10 text-3xl mx-auto max-w-6xl">
-      <Products/>
+      <Header/>
+      <div className="my-10">
+        <Products/>
+      </div>
+      <Footer/>
     </div>
   )
 };

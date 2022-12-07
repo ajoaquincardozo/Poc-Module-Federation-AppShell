@@ -44,7 +44,7 @@ module.exports = {
       name: "Poc_Module_Federation_AppShell",
       filename: "remoteEntry.js",
       remotes: {
-        "home": "home@https://poc-module-federation-products.vercel.app/remoteEntry.js"
+        "mfeProducts": "mfeProducts@https://poc-module-federation-products.vercel.app/remoteEntry.js"
       },
       exposes: {},
       shared: {
