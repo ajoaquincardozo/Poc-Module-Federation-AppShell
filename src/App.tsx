@@ -9,10 +9,8 @@ import Products from "mfeProducts/Products";
 
 const App = () => {
   const handleAddProduct = (event) => {
-    const { id, price, quantity } = event.detail.newProduct;
-    console.log("Shell-id", id);
-    console.log("Shell-price", price);
-    console.log("Shell-quantity", quantity);
+    const newProduct = event.detail.newProduct;
+    alert(JSON.stringify(newProduct, null, 2));
   };
 
   useEffect(() => {
