@@ -6,6 +6,7 @@ specifiers:
   '@babel/preset-env': ^7.15.8
   '@babel/preset-react': ^7.14.5
   '@babel/preset-typescript': ^7.10.4
+  '@babel/runtime': ^7.20.6
   '@types/react': ^17.0.2
   '@types/react-dom': ^17.0.2
   autoprefixer: ^10.1.0
@@ -24,6 +25,7 @@ specifiers:
   webpack-dev-server: ^4.3.1
 
 dependencies:
+  '@babel/runtime': 7.20.6
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
 
@@ -1282,7 +1284,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template/7.18.10:
     resolution: {integrity: sha512-TI+rCtooWHr3QJ27kJxfjutghu44DLnasDMwpDqCXVTal9RLp3RSYNh4NdBrRP2cQAoG9A8juOQl6P6oZG4JxA==}
@@ -3749,7 +3750,6 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: true
 
   /regenerator-transform/0.15.1:
     resolution: {integrity: sha512-knzmNAcuyxV+gQCufkYcvOqX/qIIfHLv0u5x79kRxuGojfYVky1f15TzZEu2Avte8QGepvUNTnLskf8E6X6Vyg==}
