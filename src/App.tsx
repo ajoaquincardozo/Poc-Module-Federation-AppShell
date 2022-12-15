@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import { GlobalRoutes } from "./components/Routes";
+import { GlobalRoutes } from "./Components/Routes";
 import React from "react";
 import ReactDOM from "react-dom";
 
