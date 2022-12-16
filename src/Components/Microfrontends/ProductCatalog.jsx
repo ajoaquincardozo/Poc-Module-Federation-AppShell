@@ -31,7 +31,7 @@ export default function ProductCatalog() {
   }, []);
 
   const onDetailClick = useCallback((id) => {
-    navigate(`/${id}`);
+    navigate(`/products/${id}`);
   }, []);
 
   return (

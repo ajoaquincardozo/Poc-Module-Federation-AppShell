@@ -7,18 +7,28 @@ import "./index.scss";
 
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import AuthProvider, { useAuth } from "./Components/AuthProvider";
 
 const App = () => {
+  const { auth } = useAuth();
+
   return (
     <BrowserRouter>
       <div className="mt-10 text-3xl mx-auto max-w-6xl">
-        <Header/>
+        {auth && <Header/>}
         <div className="my-10">
           <GlobalRoutes />
         </div>
-        <Footer/>
+        {auth && <Footer/>}
       </div>
     </BrowserRouter>
   )
 };
-ReactDOM.render(<App />, document.getElementById("app"));
+
+ReactDOM.render((
+  <React.StrictMode>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </React.StrictMode>
+), document.getElementById("app"));
