@@ -2,6 +2,7 @@ import React from "react"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
+import { authenticate } from "./auth";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -18,15 +19,19 @@ export default function Login() {
         }
     })
 
-    const onSigInClick = async (e) => {
+    const onSigInClick = (e) => {
         e.preventDefault();
-        setAuth(true);
-        document.cookie = "auth-login=jwt-value; SameSite=None; Secure"
-        navigate(`/products`);
+
+        authenticate(user, password)
+            .then(({ access_token }) => {
+                setAuth(true);
+                document.cookie = `auth-login=${access_token}; SameSite=None; Secure`
+                navigate(`/products`);
+            });
     };
 
     return (
-        <section className="">
+        <section>
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                     <img className="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"/>
@@ -39,7 +44,7 @@ export default function Login() {
                         </h1>
                         <form className="space-y-4 md:space-y-6" action="#">
                             <div>
-                                <label for="user" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User</label>
+                                <label htmlFor="user" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User</label>
                                 <input
                                     type="user"
                                     name="user"
@@ -48,10 +53,11 @@ export default function Login() {
                                     placeholder="name@company.com"
                                     required=""
                                     value={user}
+                                    onChange={(e) => setUser(e.target.value)}
                                 />
                             </div>
                             <div>
-                                <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                                 <input
                                     type="password"
                                     name="password"
@@ -60,6 +66,7 @@ export default function Login() {
                                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required=""
                                     value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
                             <div className="flex items-center justify-between">
@@ -68,7 +75,7 @@ export default function Login() {
                                         <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required=""/>
                                     </div>
                                     <div className="ml-3 text-sm">
-                                        <label for="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
+                                        <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
                                     </div>
                                 </div>
                                 <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>

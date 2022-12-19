@@ -45,6 +45,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         "mfeProducts": "mfeProducts@https://poc-module-federation-products.vercel.app/remoteEntry.js"
+        // "mfeProducts": "mfeProducts@http://localhost:3000/remoteEntry.js"
       },
       exposes: {},
       shared: {
