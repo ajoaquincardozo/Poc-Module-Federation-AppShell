@@ -21,15 +21,6 @@ export default function ProductCatalog() {
     };
   }, []);
 
-  useEffect(() => {
-    window.addEventListener('add-product', handleAddProduct);
-
-    // cleanup this component
-    return () => {
-      window.removeEventListener('add-product', handleAddProduct);
-    };
-  }, []);
-
   const onDetailClick = useCallback((id) => {
     navigate(`/products/${id}`);
   }, []);
